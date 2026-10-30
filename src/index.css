@@ -1,0 +1,203 @@
+/* --- MANAGED FONT IMPORTS START (do not edit manually) --- */
+/* INTERNAL USE NAME: Heading */
+/* INTERNAL USE NAME: Body */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* --- MANAGED FONT IMPORTS END --- */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&display=swap');
+@import url('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
+
+/* CRITICAL: THE FOLLOWING TAILWIND IMPORTS MUST NEVER BE DELETED OR REORDERED — DO NOT DELETE THIS COMMENT */
+@import './_designSystem/ds-78a90502-2620-40d5-a93f-c725ce3d93b3/index.css';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
+
+/* DinkZone design tokens — light */
+:root {
+  --background: #f5f6f0;
+  --foreground: #0b1f17;
+  --card: #ffffff;
+  --card-foreground: #0b1f17;
+  --surface-2: #ecefe5;
+  --muted: #ecefe5;
+  --muted-foreground: #56645b;
+  --border: #dce1d4;
+  --primary: #0e3b2c;
+  --primary-foreground: #ffffff;
+  --accent: #e9f7b0;
+  --accent-foreground: #24320a;
+  --highlight: #d4f23a;
+  --highlight-foreground: #0b1f17;
+  --court: #1d6b4e;
+  --ink: #0b1f17;
+  --success: #15803d;
+  --warning: #a16207;
+  --destructive: #b91c1c;
+  --ring: #1d6b4e;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px rgba(11, 31, 23, 0.06);
+  --shadow-md: 0 6px 16px -4px rgba(11, 31, 23, 0.12);
+  --shadow-lg: 0 18px 40px -12px rgba(11, 31, 23, 0.28);
+  --ease-snap: cubic-bezier(0.23, 1, 0.32, 1);
+}
+/* DinkZone design tokens — dark */
+.dark {
+  --background: #07130e;
+  --foreground: #e7efe9;
+  --card: #0d1e16;
+  --card-foreground: #e7efe9;
+  --surface-2: #13281e;
+  --muted: #13281e;
+  --muted-foreground: #9bafa3;
+  --border: #1e3629;
+  --primary: #d4f23a;
+  --primary-foreground: #07130e;
+  --accent: #23360f;
+  --accent-foreground: #e3f79a;
+  --highlight: #d4f23a;
+  --highlight-foreground: #07130e;
+  --court: #2f8f68;
+  --ink: #e7efe9;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --destructive: #f87171;
+  --ring: #d4f23a;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 16px -4px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 18px 40px -12px rgba(0, 0, 0, 0.7);
+}
+html,
+body,
+#root {
+  height: 100%;
+  min-width: 320px;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+* {
+  box-sizing: border-box;
+}
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+/* Visually-hidden labels inside wide, horizontally scrolling tables resolve their
+   static position past the viewport, which Chromium counts as page overflow and
+   adds a stray horizontal scrollbar on mobile. Pinning them to 0 keeps them
+   invisible without widening the document. */
+.sr-only {
+  left: 0;
+  top: 0;
+}
+.pressable {
+  transition:
+    transform 160ms var(--ease-snap),
+    background-color 160ms var(--ease-snap),
+    border-color 160ms var(--ease-snap),
+    opacity 160ms var(--ease-snap);
+}
+.pressable:active:not(:disabled) {
+  transform: scale(0.97);
+}
+/* Subtle net-mesh texture used on dark brand panels */
+.net-texture {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath d='M0 0L14 14M14 0L0 14' stroke='%23ffffff' stroke-opacity='0.05' stroke-width='1'/%3E%3C/svg%3E");
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.skeleton {
+  background-color: var(--muted);
+  animation: skeleton-pulse 1.4s ease-in-out infinite;
+}
+@keyframes skeleton-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+@keyframes pin-pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+.pin-pulse {
+  animation: pin-pulse 1.8s var(--ease-snap) infinite;
+}
+@keyframes nfc-wave {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+.nfc-wave {
+  animation: nfc-wave 2s var(--ease-snap) infinite;
+}
+/* Leaflet integration */
+.leaflet-container {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--surface-2);
+}
+.leaflet-div-icon.dz-pin {
+  background: transparent;
+  border: 0;
+}
+.leaflet-control-attribution {
+  font-size: 10px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
